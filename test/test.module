@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains test.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_help().
+ */
+function test_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the test module.
+    case 'help.page.test':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Just testing') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function test_entity_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+  // Just test take away access by title
+  if ($entity->getEntityTypeId() == 'node' && stristr($entity->label(), 'cannot') !== FALSE) {
+    return AccessResult::forbidden();
+  }
+  return AccessResult::neutral();
+}

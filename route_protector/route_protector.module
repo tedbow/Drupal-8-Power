@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains route_protector.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function route_protector_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the route_protector module.
+    case 'help.page.route_protector':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}

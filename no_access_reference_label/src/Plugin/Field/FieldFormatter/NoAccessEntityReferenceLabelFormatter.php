@@ -36,6 +36,9 @@ class NoAccessEntityReferenceLabelFormatter extends EntityReferenceLabelFormatte
     $link_setting = $this->getSetting('link');
 
     foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
+      if ($this->isUnpublishedEntity($entity)) {
+        continue;
+      }
       $label = $entity->label();
       // If the link is to be displayed and the entity has a uri, display a
       // link.
@@ -76,6 +79,16 @@ class NoAccessEntityReferenceLabelFormatter extends EntityReferenceLabelFormatte
     }
 
     return $elements;
+  }
+
+  /**
+   * Checks if a entity is unpublished.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   */
+  protected function isUnpublishedEntity(EntityInterface $entity) {
+    // @todo Actually check ;) .
+    return FALSE;
   }
 
 

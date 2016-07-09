@@ -1,0 +1,14 @@
+{
+  "name": "drupal/test",
+  "type": "drupal-module",
+  "description": "Just testing",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/test",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/test",
+    "source": "http://cgit.drupalcode.org/test"
+  },
+  "require": { }
+}

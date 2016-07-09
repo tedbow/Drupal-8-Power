@@ -1,0 +1,5 @@
+services:
+  route_protector.default:
+    class: Drupal\route_protector\RouteProtector
+    arguments: ["@current_user"]
+
