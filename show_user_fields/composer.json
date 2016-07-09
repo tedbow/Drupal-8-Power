@@ -1,0 +1,14 @@
+{
+  "name": "drupal/show_user_fields",
+  "type": "drupal-module",
+  "description": "Show base user fields",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/show_user_fields",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/show_user_fields",
+    "source": "http://cgit.drupalcode.org/show_user_fields"
+  },
+  "require": { }
+}

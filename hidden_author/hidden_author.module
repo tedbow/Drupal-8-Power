@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\Core\Entity\EntityTypeInterface;
+/**
+ * Implements hook_entity_base_field_info_alter();
+ */
+function hidden_author_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  //
+  if ($entity_type->id() == 'node') {
+    /** @var \Drupal\Core\Field\BaseFieldDefinition $uid_field */
+    $uid_field = $fields['uid'];
+
+    $uid_field->setDisplayOptions('view', array(
+      'label' => 'hidden',
+      'type' => 'hidden_author',
+      'weight' => 0,
+    ));
+  }
+}

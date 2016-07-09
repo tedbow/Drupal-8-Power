@@ -1,0 +1,14 @@
+{
+  "name": "drupal/real_author",
+  "type": "drupal-module",
+  "description": "Adds real author base field",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/real_author",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/real_author",
+    "source": "http://cgit.drupalcode.org/real_author"
+  },
+  "require": { }
+}

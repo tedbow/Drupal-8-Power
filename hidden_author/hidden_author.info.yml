@@ -1,0 +1,5 @@
+name: Hidden Author
+type: module
+description: Hide Author if the user does not access to view the profile
+core: 8.x
+package: Custom

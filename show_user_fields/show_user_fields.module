@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains show_user_fields.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+/**
+ * Implements hook_help().
+ */
+function show_user_fields_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the show_user_fields module.
+    case 'help.page.show_user_fields':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Show base user fields') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter();
+ */
+function show_user_fields_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'user') {
+    $show_fields = ['roles', 'access', 'login'];
+    foreach ($show_fields as $show_field) {
+      if (isset($fields[$show_field])) {
+        /** @var \Drupal\Core\Field\BaseFieldDefinition $field */
+        $field = $fields[$show_field];
+        $field->setDisplayConfigurable('view', TRUE);
+        // @todo Set to default hidden
+      }
+    }
+  }
+}
+

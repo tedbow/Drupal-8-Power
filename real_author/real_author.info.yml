@@ -1,0 +1,7 @@
+name: Real Author
+type: module
+description: Adds real author base field
+core: 8.x
+package: Custom
+dependencies:
+  - node

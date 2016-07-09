@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ * Contains real_author.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function real_author_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the real_author module.
+    case 'help.page.real_author':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds real author base field') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function real_author_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'node') {
+    $fields['real_author'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Real Author'))
+      ->setDescription(t('The username of the REAL content author.'))
+      ->setRevisionable(TRUE)
+      // If your authors are not actual users but just nodes representing
+      // writers you could make the target type node.
+      // You could also change it per bundle.
+      ->setSetting('target_type', 'user')
+      //->setDefaultValueCallback('Drupal\node\Entity\Node::getCurrentUserId')
+      ->setTranslatable(TRUE)
+      ->setDisplayOptions('view', array(
+        'label' => 'hidden',
+        'type' => 'author',
+        'weight' => 0,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 5,
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'placeholder' => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter();
+ */
+function real_author_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'node') {
+    /** @var BaseFieldDefinition $uid_field */
+    $uid_field = $fields['uid'];
+    // This removes the ability to configure the "Authored by" field on the form.
+    // You could also just leave it up to the site admin to disable it per bundle.
+    $uid_field->setDisplayConfigurable('form', FALSE);
+    $uid_field->setDisplayOptions('form', []);
+  }
+}

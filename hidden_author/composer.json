@@ -1,0 +1,14 @@
+{
+  "name": "drupal/hidden_author",
+  "type": "drupal-module",
+  "description": "Hide Author if the user does not access to view the profile",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/hidden_author",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/hidden_author",
+    "source": "http://cgit.drupalcode.org/hidden_author"
+  },
+  "require": { }
+}

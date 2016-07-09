@@ -1,0 +1,5 @@
+name: Show User Fields
+type: module
+description: Show base user fields
+core: 8.x
+package: Custom
