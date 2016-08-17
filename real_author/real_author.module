@@ -31,6 +31,10 @@ function real_author_help($route_name, RouteMatchInterface $route_match) {
  */
 function real_author_entity_base_field_info(EntityTypeInterface $entity_type) {
   if ($entity_type->id() === 'node') {
+    $field_other_author = BaseFieldDefinition::create('entity_reference');
+    
+    $field_other_author->setDescription("this is my other author");
+    
 
     $fields['real_author'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Real Author'))
