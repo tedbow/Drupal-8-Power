@@ -1,0 +1,5 @@
+name: Condition Test
+type: module
+description: Shows and example condition
+core: 8.x
+package: Custom
