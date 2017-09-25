@@ -1,0 +1,14 @@
+{
+  "name": "drupal/author_conditions",
+  "type": "drupal-module",
+  "description": "Conditions related to the author",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/author_conditions",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/author_conditions",
+    "source": "http://cgit.drupalcode.org/author_conditions"
+  },
+  "require": { }
+}

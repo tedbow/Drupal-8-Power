@@ -1,0 +1,5 @@
+name: Author Conditions
+type: module
+description: Conditions related to the author
+core: 8.x
+package: Custom
