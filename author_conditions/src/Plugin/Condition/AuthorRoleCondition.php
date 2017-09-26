@@ -4,8 +4,6 @@ namespace Drupal\author_conditions\Plugin\Condition;
 
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheableDependencyInterface;
-use Drupal\Core\Plugin\Context\ContextDefinition;
-use Drupal\node\Entity\Node;
 use Drupal\user\Plugin\Condition\UserRole;
 
 /**
